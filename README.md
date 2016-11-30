@@ -4,7 +4,9 @@ La Coinche, also known as La Coinchée or La Belote Coinchée is a version of th
 
 
 launch the server : java -jar server.jar
+
 launch the client : java -jar -Djava.library.path="./lwjgl" client_slick2d.jar ip 4242
+
 
 ![alt text][screen1]
 ![alt text][screen2]
