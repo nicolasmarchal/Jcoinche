@@ -1,0 +1,6 @@
+rootProject.name = 'jcoinche'
+include 'jcoinche_client'
+include 'jcoinche_server'
+include 'jcoinche_shared'
+include 'jcoinche_slick2d'
+

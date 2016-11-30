@@ -1,0 +1,31 @@
+Client -> Server:
+
+Starting Phase:
+
+1	/ready					Announce that you are ready
+2	/help					Get some help for the current phase
+
+Bet Phase:
+
+3	/bet		type	points		Announce a bet  type(“trefle”, “pique”, “coeur”, “carreau”) points(80 - 160)
+4	/pass					Pass your turn
+5	/coinche				Announce that you coinche the last bet
+6	/surcoinche				Announce that you want to surcoinche the last coinche
+7	/getcurrentbet				Get the last bet and the player who did it
+2	/help					Get some help for the current phase
+14	/gethand				Get the cards in your hand
+11	/getpoints				Get your points for the game
+
+Play Phase:
+
+8	/playcard	cardNumber		Play a card
+9	/gethand				Get the cards in your hand
+10	/getcardstable				Get the cards on the table
+7	/getcurrentbet				Get the last bet and the player who did it
+2	/help					Get some help for the current phase
+11	/getpoints				Get your points for the game
+
+Server -> Client:
+
+12	RESPONSE	message			Get the response for the last command
+13	NOTIFY		message			Tell the client what is happening

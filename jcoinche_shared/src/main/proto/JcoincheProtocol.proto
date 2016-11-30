@@ -1,0 +1,94 @@
+package shared.protos;
+
+option java_package = "jcoinche.protobuf.protos";
+option java_outer_classname = "Packets";
+
+enum Command {
+
+    READY = 1;
+    BET = 2;
+    PLAY_CARD = 3;
+    RESPONSE = 4;
+    HELP = 5;
+    DISPLAY_CARD = 6;
+    GET_CURRENT_BET = 7;
+    GET_HAND = 8;
+    GET_CARDS_TABLE = 9;
+    GET_POINTS = 10;
+    RESPONSE_GRAPH = 11;
+    HAND = 12;
+    BET_BEGIN = 13;
+    BET_TURN = 14;
+    PLAY_TURN = 15;
+    BET_SUCCESS = 16;
+    BET_ERROR = 17;
+    BET_PASS = 18;
+    GAME_POINTS = 19;
+    WHO_AM_I = 20;
+    PLAY_BEGIN = 21;
+    PLAY_ERROR = 22;
+    TURN_WIN = 23;
+}
+
+enum Types {
+
+    TREFLE = 0;
+    PIQUE = 1;
+    COEUR = 2;
+    CARREAU = 3;
+    NON_ATOUT = 4;
+    TOUT_ATOUT = 5;
+}
+
+enum Values {
+
+    SEPT = 0;
+    HUIT = 1;
+    NEUF = 2;
+    DIX = 3;
+    VALET = 4;
+    DAME = 5;
+    ROI = 6;
+    AS = 7;
+}
+
+message Packet {
+    extensions 100 to max;
+
+    required Command command = 1;
+    optional string message = 2;
+}
+
+message Card {
+    extend Packet
+    {
+        optional Card card = 100;
+    }
+    optional int32 cardNumber = 1;
+    optional Types type = 2;
+    optional Values value = 3;
+}
+
+message Bet {
+    extend Packet
+    {
+        optional Bet bet = 101;
+    }
+    optional Types type = 1;
+    optional int32 points = 2;
+    optional bool isPassing = 3;
+    optional bool isCoinche = 4;
+    optional bool isSurCoinche = 5;
+}
+
+message Points {
+    extend Packet
+    {
+        optional Points points = 102;
+    }
+    required string teamName1 = 1;
+    required string teamName2 = 2;
+    required int32 pointsTeam1 = 3;
+    required int32 pointsTeam2 = 4;
+
+}
